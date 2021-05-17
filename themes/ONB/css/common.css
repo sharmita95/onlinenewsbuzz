@@ -1,0 +1,119 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
+@import url("https://fonts.googleapis.com/css?family=Raleway|Nunito&display=swap");
+:root {
+  --primary: $color-primary;
+}
+
+:root {
+  --primary: #4cb829;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.find {
+  border: 1px solid red;
+}
+
+body {
+  background: white;
+  font-family: "Raleway", "Nunito", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2d2d2d;
+  margin: 0px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.row {
+  margin: 0px;
+}
+
+*[class^="col-"],
+*[class*=" col-"] {
+  padding: 0px;
+  position: relative;
+}
+
+section[class*="sec"] {
+  padding: 5vmin 0vmin;
+}
+
+.highlight {
+  color: #4cb829;
+}
+
+.highlight-l {
+  color: white;
+}
+
+.highlight-d {
+  color: #2d2d2d;
+}
+
+.btn {
+  padding: 0.6rem 0.7rem;
+  white-space: nowrap;
+}
+
+.btn-curve {
+  text-transform: uppercase;
+  background-color: white;
+  border-radius: 2px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.btn-curve:hover {
+  border-radius: 2px 2px 15px 2px;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.btn-flat {
+  background-color: #4cb829;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: white;
+  text-transform: capitalize;
+}
+
+.sec-title {
+  text-align: center;
+  font-size: calc(10px + 3vmin);
+  font-weight: bolder;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sec-title .highlight {
+  color: #4cb829;
+  border-bottom: 4px solid #fcfcfc;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+/*# sourceMappingURL=common.css.map */

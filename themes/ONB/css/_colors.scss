@@ -1,0 +1,21 @@
+$color-primary: rgb(76, 184, 41);
+$color-secondary: rgb(91, 16, 167);
+$color-tertiary:  rgb(223, 119, 82);
+
+$color-btn-bg:  #{$color-tertiary};
+
+$color-success: rgb(40, 167, 69);
+$color-danger: rgb(220, 53, 69);
+
+$color-base-primary: white;
+$color-base-secondary: rgb(252, 252, 252);
+
+$color-shadow: rgba(0, 0, 0, 0.3);
+$color-shadow-light: rgba(61, 83, 255, 0.1);
+
+$color-black-matt: rgb(45, 45, 45);
+$color-grey: grey;
+
+:root {
+    --primary: $color-primary;
+}

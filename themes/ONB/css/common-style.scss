@@ -1,0 +1,221 @@
+// header {
+
+//   .menu-section {
+//   list-style: none;
+//   display: flex;
+//   flex: auto;
+//   font-weight: 600;
+//   margin: 0 auto;
+//   @include mq($until: tablet) {
+//     display: none;
+//   }
+//   .menu-list-item {
+//     padding: 20px 0px;
+//     position: relative;
+//     &:hover ul {
+//       display: block;
+//     }
+//     ul {
+//       display: none;
+//       list-style: none;
+//       position: absolute;
+//       z-index: 9;
+//       height: auto;
+//       top: 0px;
+//       li {
+//         margin: 0;
+//         padding: 0;
+//         .hambar-manu-content {
+//           margin-top: 58px;
+//           position: absolute;
+//           width: 150vmin;
+//           height: auto;
+//           border: 1px solid #263262;
+//           background: #fff;
+//         }
+//         .hambar-manu-content-more {
+//           margin-top: 52px;
+//           position: absolute;
+//           width: 30vmin;
+//           height: auto;
+//           border: 1px solid #263262;
+//           background: #fff;
+//         }
+
+//         .entrepreneurship {
+//           position: absolute;
+//           left: -14vmin;
+//           height: auto;
+//         }
+//         .finance {
+//           position: absolute;
+//           left: -35vmin;
+//           height: auto;
+//         }
+//         .sales {
+//           position: absolute;
+//           left: -47vmin;
+//           height: auto;
+//         }
+//         .technology {
+//           position: absolute;
+//           left: -69vmin;
+//           height: auto;
+//         }
+//         .services {
+//           position: absolute;
+//           left: -84vmin;
+//           height: auto;
+//         }
+//         .more{
+//           position: absolute;
+//           height: auto;
+//           .maga-link-content {
+//             border: none;
+//            }
+
+//         }
+//       }
+//     }
+//     .menu-list-link {
+//       padding: 0 1vmin;
+//       text-decoration: none;
+//       font-size: 2vmin;
+//     }
+//   }
+//   }
+
+//   .maga-card-content {
+//     width: 100%;
+//     padding: 3vmin 0;
+//     display: flex;
+//     justify-content: space-evenly;
+//     .maga-card {
+//       width: 180px;
+//       height: auto;
+//       display: flex;
+//       flex-direction: column;
+//       text-decoration: none;
+//       box-shadow: 0 0.125rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
+
+//       .mc-img-jar {
+//         width: 100%;
+//         height: 80px;
+//         img {
+//           width: 100%;
+//           height: 100%;
+//           object-fit: cover;
+//         }
+//       }
+//       .mc-txt-jar {
+//         width: 100%;
+//         padding:1vmin 1vmin;
+//         .mc-txt-taitel {
+//           width: 100%;
+//           font-size: calc(10px + 0.9vmin);
+//           display: block;
+//           letter-spacing: justify;
+//           text-align: justify;
+//         }
+//         .mc-caption {
+//           color: gray;
+//           font-size: calc(5px + 1vmin) !important;
+//           padding: 5px 0;
+//         }
+//       }
+//     }
+//   }
+
+//   .maga-link-content {
+//     // maga menu global section
+//     height: auto;
+//     min-height: 33vmin;
+//     display: flex;
+//     flex-direction: column;
+//     margin: 0px;
+//     padding: 0px;
+//     border-right: 1px solid #000;
+//     align-content: center;
+//     a {
+//       text-align: left;
+//       padding: 1.5vmin 0;
+//       margin: 0px;
+//       font-size: calc(8px + 0.5vmin);
+//       text-decoration: none;
+//       &:hover {
+//         background: rgba(0, 255, 255, 0.322);
+//       }
+//     }
+//   }
+
+// }
+header .list-links a {
+    display: inline-block;
+    width: 100%;
+}
+
+.archive h1.page-title {
+    font-size: calc(12px + 2vmin) !important;
+    margin-bottom: 0;
+}
+
+.banner-section {
+  padding: 0px;
+  .img-fill {
+        img {
+            transition: transform 0.3s;
+        }
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+  .bnr-single-div {
+    position: relative;
+    
+    .content {
+        padding: 10px;
+        width: 100%;
+        background: #0000007a;
+        /* background: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 100%); */
+        position: absolute;
+        margin-bottom: 0;
+        bottom: 0;
+        font-size: 1.4rem;
+        /* padding-top: 25px; */
+        color: white;
+        line-height: 1.8rem;
+        transition: color 0.2s;
+        .category {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            color: #d0d0d0;
+            transition: 0.3s;
+            &:hover {
+              color: #4cb829;
+            }
+        }
+        h6.title {
+          transition: 0.3s;
+          /* padding: 10px;
+          width: 100%;
+          background: rgb(255,255,255);
+          background: linear-gradient(0deg, black 0%, rgba(255,255,255,0) 100%);
+          position: absolute;
+          margin-bottom: 0;
+          bottom: 0;
+          font-size: 1.4rem;
+          padding-top: 84px;
+          color: white;
+          line-height: 1.8rem;
+          transition: color 0.2s; */
+          &:hover {
+            color: #4cb829;
+          }
+        }
+    }
+    
+  }
+}

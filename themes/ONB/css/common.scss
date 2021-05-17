@@ -1,0 +1,1026 @@
+// @import url("https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+// @import "./mq";
+// @import "./bootstrap.min.css";
+
+// @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+// @import url("https://skywalkapps.github.io/bootstrap-dropmenu/stylesheets/bootstrap-dropmenu.min.css");
+// @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
+// @import url("https://fonts.googleapis.com/css?family=Raleway|Nunito&display=swap");
+
+// @import url("/css/modules/bootstrap.all.css");
+
+// variables
+// @import "./colors";
+
+$font-primary: "Raleway", "Nunito", Tahoma, Geneva, Verdana, sans-serif;
+$font-secondary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$font-tertiary: "Nunito", Tahoma, Geneva, Verdana, sans-serif;
+
+:root {
+  --primary: #{$color-primary};
+}
+
+$shadow-primary-config: 0 2px 5px;
+$shadow-secondary-config: 0 7px 5vmin -7px;
+$shadow-primary: $shadow-primary-config $color-shadow;
+$shadow-primary-light: $shadow-primary-config $color-shadow-light;
+$shadow-secondary: $shadow-secondary-config $color-shadow;
+$shadow-secondary-light: $shadow-secondary-config $color-shadow-light;
+
+@mixin box-shadow-primary($color: $color-primary) {
+  box-shadow: $shadow-primary-config $color;
+}
+
+@mixin box-shadow-secondary($color: $color-primary) {
+  box-shadow: $shadow-secondary-config $color;
+}
+
+@mixin text-shadow-primary($color: $color-primary) {
+  text-shadow: 0 1px 3vmin $color;
+}
+
+@mixin text-shadow-secondary($color: $color-primary) {
+  text-shadow: 0 1px 3vmin $color;
+}
+
+$gradient-primary: linear-gradient(154.81deg, #3d38c2 0%, #5d32b4 100%);
+
+//generic resets
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.find {
+  border: 1px solid red;
+}
+
+body {
+  background: $color-base-primary;
+  font-family: $font-primary;
+  color: $color-black-matt;
+  margin: 0px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  user-select: none;
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+//override bootstrap
+.row {
+  margin: 0px;
+}
+
+*[class^="col-"],
+*[class*=" col-"] {
+  padding: 0px;
+  position: relative;
+}
+
+section[class*="sec"] {
+  padding: 5vmin 0vmin;
+}
+
+// Mixins
+$mq-breakpoints: (
+  mobile: 320px,
+  tablet: 768px,
+  desktop: 980px,
+  wide: 1300px
+);
+
+@mixin root-align-center {
+  text-align: center;
+  & > * {
+    text-align: left;
+  }
+}
+
+@mixin mini-card {
+  padding: 2vmin 5vmin;
+  color: $color-black-matt;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  color: $color-grey;
+  user-select: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  transition: border-radius 0.15s, shadow 0.3s, transform 0.3s;
+  // margin: auto;
+
+  &:hover {
+    color: white;
+    background-color: $color-primary;
+    background: $gradient-primary;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+  }
+
+  .icon {
+    margin-right: calc(5px + 2vmin);
+    @include align-center-flex;
+    font-size: 2rem;
+  }
+
+  .text {
+    @include align-center-flex;
+  }
+}
+
+@mixin flex(
+  $direction: row,
+  $align: flex-start,
+  $justify: space-evenly,
+  $type: flex
+) {
+  display: $type;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  @content;
+}
+
+@mixin gap($gap: 2rem) {
+  grid-gap: $gap;
+  gap: $gap;
+}
+
+@mixin mini-card2($nth) {
+  padding: 2vmin 5vmin;
+  color: $color-black-matt;
+  position: relative;
+  overflow: hidden;
+  color: $color-grey;
+  user-select: none;
+  transition: border-radius 0.15s, shadow 0.3s, transform 0.3s;
+
+  .icon {
+    font-size: 2rem;
+  }
+
+  .text,
+  .icon {
+    @include align-center-flex;
+  }
+
+  .text {
+    margin-top: 1vmin;
+  }
+
+  @for $i from 1 through $nth {
+    &:nth-child(#{$i}):before {
+      content: "0#{$i}";
+    }
+  }
+
+  &::before {
+    @include align-center;
+    position: absolute;
+    font-size: 6rem;
+    font-style: italic;
+    font-weight: bolder;
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+  }
+
+  &:hover {
+    color: white;
+
+    &::before {
+      opacity: 0.2;
+    }
+  }
+
+  /* #region */
+  //// example
+  // .steps-cards {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(calc(8vw + 200px), 1fr));
+  //   grid-gap: 0.5rem;
+  //   align-items: center;
+
+  //   .c-card {
+  //     @include mini-card2(6);
+  //     margin: 3vmin auto;
+  //     max-width: 250px;
+  //     min-height: 80px;
+  //     color: white;
+
+  //     @include mq-small-only {
+  //       margin: 3vmin auto;
+  //       min-width: 300px;
+  //     }
+  //   }
+  // }
+  /* #endregion */
+}
+
+@mixin large-rec-card {
+  margin: 3vmin;
+  // margin-left: 0px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+  color: grey;
+  position: relative;
+  transition: 0.3s;
+  display: flex;
+
+  @include mq-medium {
+    height: auto;
+  }
+
+  @include mq-large {
+    height: 170px;
+  }
+
+  @include mq-small-only {
+    height: auto;
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  .icon {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    background-color: $color-primary;
+    max-height: 50px;
+    position: absolute;
+    box-shadow: 0px 0px 1px 6px rgba(0, 75, 161, 0.3);
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    font-size: 1.5rem;
+    color: white;
+
+    img,
+    i {
+      max-height: 100%;
+      top: 0px;
+      left: 0px;
+      width: auto;
+      height: 100%;
+      padding: 10px;
+    }
+  }
+
+  .detail {
+    padding-left: 2vmin;
+    font-size: 0.9rem;
+
+    @include mq-small-only {
+      padding-left: 4vmin;
+    }
+  }
+
+  .title {
+    color: black;
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      134.27deg,
+      rgb(74, 69, 213) 0%,
+      rgb(78, 65, 207) 72%,
+      rgb(93, 50, 180) 100%
+    );
+    box-shadow: 0px 1px 5px rgba(93, 50, 180, 0.5);
+    color: white;
+    transform: scale(1.05);
+    cursor: pointer;
+
+    p {
+      color: inherit;
+    }
+
+    .icon {
+      box-shadow: 0px 0px 1px 6px rgba(255, 255, 255, 0.1);
+    }
+
+    .title {
+      color: white;
+    }
+  }
+}
+
+@mixin large-rec-card2 {
+  margin: 3vmin;
+  // margin-left: 0px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+  color: grey;
+  position: relative;
+  transition: 0.3s;
+  display: flex;
+
+  @include mq-medium {
+    height: auto;
+  }
+
+  @include mq-large {
+    min-height: 29vmin;
+  }
+
+  @include mq-small-only {
+    height: auto;
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  .icon {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 2.5rem;
+    color: grey;
+
+    img,
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      height: 50px;
+    }
+  }
+
+  .detail {
+    padding-left: 2vmin;
+    font-size: 0.9rem;
+
+    @include mq-small-only {
+      padding-left: 4vmin;
+    }
+  }
+
+  .title {
+    color: black;
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      134.27deg,
+      rgb(74, 69, 213) 0%,
+      rgb(78, 65, 207) 72%,
+      rgb(93, 50, 180) 100%
+    );
+    box-shadow: 0px 1px 5px rgba(93, 50, 180, 0.5);
+    color: white;
+    transform: scale(1.05);
+    cursor: pointer;
+    border-bottom-right-radius: 20px;
+
+    p {
+      color: inherit;
+    }
+
+    .icon {
+      color: white;
+    }
+
+    .title {
+      color: white;
+    }
+  }
+}
+
+@mixin panel(
+  $padding: 4vmin,
+  $border-radius: 15px,
+  $shadow: 0 5px 3vmin -5px $color-shadow,
+  $color: $color-black-matt,
+  $title-color: $color-base-primary,
+  $bg-color: $color-base-primary,
+  $title-bg-color: $color-primary
+) {
+  box-shadow: 0 5px 3vmin -5px $color-shadow-light;
+  box-shadow: $shadow;
+  // margin: 3vmin 2vmin;
+  border-radius: $border-radius;
+  background-color: $bg-color;
+  color: $color;
+  overflow: hidden;
+
+  .title {
+    color: $title-color;
+    padding: 2vmin 3vmin;
+    background-color: $title-bg-color;
+    margin-bottom: 0px;
+    font-weight: bolder;
+    font-size: calc(10px + 1vmin);
+  }
+
+  .body {
+    padding: $padding;
+  }
+}
+
+@mixin overlay {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+@mixin full-fit {
+  min-height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+@mixin fluid {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin align-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin align-center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin align-center-vertically {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin mat-contact-us-form {
+  @keyframes autofill {
+    to {
+      color: white;
+      background: transparent;
+    }
+  }
+
+  input,
+  textarea {
+    border: none;
+    border-bottom: 1px solid $color-grey;
+    border-radius: 0px;
+    background-color: inherit;
+    box-shadow: none;
+    margin: 5px;
+  }
+
+  input:-webkit-autofill {
+    animation-name: autofill;
+    animation-fill-mode: both;
+  }
+}
+
+%grid {
+  display: grid;
+  grid-column-gap: 15px;
+  grid-template-columns: 15px repeat(12, 1fr) 15px;
+  @media (min-width: 992px) {
+    grid-column-gap: 30px;
+    grid-template-columns: auto repeat(12, minmax(0px, 65px)) auto;
+  }
+}
+
+@function templateRow($list) {
+  $resultString: "";
+  @for $i from 1 through length($list) {
+    @if $i % 2 != 0 {
+      $count: nth($list, $i);
+      @for $j from 1 through $count {
+        $resultString: $resultString + " " + nth($list, $i + 1);
+      }
+    }
+  }
+  @return $resultString;
+}
+
+//generic styles
+.highlight {
+  color: $color-primary;
+}
+
+.highlight-l {
+  color: white;
+}
+
+.highlight-d {
+  color: $color-black-matt;
+}
+
+.btn {
+  padding: 0.6rem 0.7rem;
+  white-space: nowrap;
+}
+
+.btn-curve {
+  $c: 2px;
+
+  text-transform: uppercase;
+  background-color: white;
+  border-radius: $c;
+  transition: 0.3s;
+  box-shadow: 1px 1px 1px $color-shadow;
+
+  &:hover {
+    border-radius: $c $c 15px $c;
+    box-shadow: 1px 1px 5px $color-shadow;
+    transform: scale(1.1);
+  }
+}
+
+.btn-flat {
+  background-color: $color-primary;
+  border-radius: 0px;
+  box-shadow: none;
+  color: white;
+  text-transform: capitalize;
+}
+
+@function decimal-round($number, $digits: 0, $mode: round) {
+  $n: 1;
+  // $number must be a number
+  @if type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  // $digits must be a unitless number
+  @if type-of($digits) != number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+  } @else if not unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @if $digits > 0 {
+    @for $i from 1 through $digits {
+      $n: $n * 10;
+    }
+  }
+  @if $mode == round {
+    @return round($number * $n) / $n;
+  } @else if $mode == ceil {
+    @return ceil($number * $n) / $n;
+  } @else if $mode == floor {
+    @return floor($number * $n) / $n;
+  } @else {
+    @warn '#{ $mode } is undefined keyword.';
+    @return $number;
+  }
+}
+
+@function get-fa-stars($count) {
+  $star: "\f005 ";
+  $content: null;
+
+  @each $num in $count {
+    @if $content == null {
+      $content: unquote($star);
+    } @else {
+      $content: $content + unquote($star);
+    }
+  }
+
+  @return $content;
+}
+
+@mixin btn-curve(
+  $border-radius: 15px 0 15px 0,
+  $background-color: $color-primary,
+  $color: white,
+  $padding: 2vmin 4vmin,
+  $font-size: calc(8px + 1vmin)
+) {
+  border-radius: $border-radius;
+  background-color: $background-color;
+  color: $color;
+  padding: $padding;
+  font-size: $font-size;
+}
+
+@mixin flex-vertical() {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@mixin flex-horizontal() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@mixin flex-alternate($pattern: "") {
+  @if $pattern == reverse {
+    &:nth-of-type(odd) {
+      flex-direction: row-reverse;
+    }
+    &:nth-of-type(even) {
+      flex-direction: row;
+    }
+  } @else {
+    &:nth-of-type(odd) {
+      flex-direction: row;
+    }
+    &:nth-of-type(even) {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+@mixin flexGap($gap, $direction: "row") {
+  > div {
+    @if $direction == "row" {
+      margin: 0 $gap/2;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    @if $direction == "column" {
+      margin: $gap/2 0;
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+%magin {
+  margin: 2vmin;
+}
+
+%padding {
+  padding: 2vmin;
+}
+
+%padding-l {
+  padding: 8vmin;
+}
+
+// example
+// .flex-container {
+//   display: flex;
+//   @include flexGap( 20px );
+// }
+
+.sec-title {
+  text-align: center;
+  font-size: calc(10px + 3vmin);
+  // margin-bottom: 8vmin;
+  font-weight: bolder;
+  font-family: $font-secondary;
+
+  .highlight {
+    color: $color-primary;
+    border-bottom: 4px solid $color-base-secondary;
+  }
+}
+
+//////////// theme specific codes
+@mixin card-rec(
+  $bg-color: $color-base-primary,
+  $bg-color-hover: $color-primary,
+  $text-color: $color-black-matt,
+  $text-color-hover: $color-base-primary,
+  $title-position: bottom,
+  $border-radius: 20px 0 20px 0
+) {
+  overflow: hidden;
+  display: flex;
+
+  @if $title-position == top {
+    flex-direction: column-reverse;
+  } @else {
+    flex-direction: column;
+  }
+  border-radius: $border-radius;
+  transition: box-shadow 0.3s, transform 0.5s;
+
+  img {
+    object-fit: cover;
+  }
+
+  .title {
+    height: 100%;
+    padding: 2vmin 3vmin;
+    background-color: $bg-color;
+    margin-bottom: 0px;
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    color: $text-color;
+  }
+
+  &:hover {
+    box-shadow: $shadow-primary;
+    transform: scale(1.05);
+
+    .title {
+      background-color: $bg-color-hover;
+      color: $text-color-hover;
+    }
+  }
+}
+
+@mixin image-cover {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+@mixin card-rec-complex(
+  $bg-color: $color-base-primary,
+  $bg-color-hover: $color-primary,
+  $text-color: $color-black-matt,
+  $text-color-hover: $color-base-primary,
+  $title-position: bottom,
+  $border-radius: 20px 0 20px 0
+) {
+  overflow: hidden;
+  border-radius: $border-radius;
+  transition: box-shadow 0.3s, transform 0.5s;
+
+  .img-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+      @include image-cover;
+    }
+  }
+
+  .body {
+    display: flex;
+
+    @if $title-position == top {
+      flex-direction: column-reverse;
+    } @else {
+      flex-direction: column;
+    }
+    height: 100%;
+    width: 100%;
+    padding: 2vmin 3vmin;
+    background-color: $bg-color;
+    margin-bottom: 0px;
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    color: $text-color;
+
+    .title {
+      font-size: calc(10px + 1vmin);
+      font-weight: bolder;
+    }
+
+    .highlights {
+      display: flex;
+      margin-bottom: 2vmin;
+      font-weight: lighter;
+      color: grey;
+
+      & > div {
+        width: 100%;
+      }
+
+      .left {
+        margin-right: auto;
+      }
+
+      .right {
+        margin-left: auto;
+      }
+
+      .profile {
+        display: flex;
+        .dp {
+          width: 30px;
+          height: 30px;
+          overflow: hidden;
+          border-radius: 50%;
+          margin-right: 1vmin;
+
+          img {
+            @include image-cover;
+          }
+        }
+      }
+    }
+
+    .description {
+      font-weight: lighter;
+      font-size: calc(8px + 1vmin);
+      line-height: calc(8px + 2vmin);
+    }
+  }
+
+  &:hover {
+    box-shadow: $shadow-primary;
+    transform: scale(1.05);
+
+    .body {
+      background-color: $bg-color-hover;
+      color: $text-color-hover;
+    }
+  }
+}
+
+@mixin object-fit($type: cover) {
+  width: 100%;
+  height: 100%;
+  object-fit: $type;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+
+
+@mixin scrollbar-subtle($size: 1vmin, $max-size: 5px) {
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar {
+    width: $size;
+    max-width: $max-size;
+    height: $size;
+    max-height: $max-size;
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    // background-color: lightgrey;
+  }
+}
+
+@mixin text-formal {
+  color: $color-black-matt;
+  font-family: $font-tertiary;
+
+  p,
+  ul {
+    font-size: calc(10px + 1.1vmin);
+    color: #5e5e5e;
+    margin-bottom: 1.5rem;
+    line-height: 2;
+
+    img {
+      margin-bottom: 0px;
+    }
+  }
+
+  li {
+    color: #5e5e5e;
+  }
+
+  img {
+    max-height: 50vh;
+    max-width: 100%;
+    object-fit: contain;
+    height: auto;
+    margin-bottom: 2vmin;
+    // @include mq($from: tablet) {
+    //   object-fit: cover;
+    // }
+  }
+
+  h {
+    $font-for-text: $font-primary;
+    &1 {
+      margin-top: 3vmin;
+      font-size: calc(13px + 2.1vmin);
+      font-family: $font-for-text;
+    }
+
+    &2 {
+      margin-top: 2.9vmin;
+      font-size: calc(11px + 2vmin);
+      font-family: $font-for-text;
+    }
+
+    &3 {
+      margin-top: 2.8vmin;
+      font-size: calc(9px + 2vmin);
+      font-family: $font-for-text;
+    }
+
+    &4 {
+      margin-top: 2.4vmin;
+      font-size: calc(7px + 2vmin);
+      
+    }
+
+    &5 {
+      margin-top: 2vmin;
+      font-size: calc(5px + 2vmin);
+    }
+
+    &6 {
+      margin-top: 1.6min;
+      font-size: calc(3px + 2vmin);
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    color: $color-black-matt;
+    margin-bottom: 1vmin;
+  }
+
+  ul {
+    li {
+      margin-bottom: 1vmin;
+    }
+  }
+
+  @content;
+}
+
+@mixin block($padding: 3vmin 5vmin) {
+  padding: $padding;
+  background-color: $color-base-primary;
+  border-radius: 3px;
+  box-shadow: $shadow-primary;
+  @content;
+}
+
+@mixin reset-list {
+  list-style-type: none;
+  padding: 0px;
+}
+
+@mixin reset-button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+
+  /* Remove excess padding and border in Firefox 4+ */
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}

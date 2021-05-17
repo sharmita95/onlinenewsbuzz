@@ -1,0 +1,111 @@
+/*
+Theme Name: ONB
+Theme URI: https://www.viacon.in
+Author: Viacon Design & Development Team
+Author URI: https://www.viacon.in
+Description: The digital industry's top tech nerds, geeks and experts offer their best digital marketing advice. From research to insights, from How-To’s to Tech News- we help you up your SEO and digital marketing game.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, blog
+Text Domain: onb
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+.accessily-verification {
+    opacity: 0;
+    pointer-events: none;
+}
+a.accessily-verification img {
+    width: 10%;
+}
+img.site-logo {
+    height: 24px;
+    width: auto;
+}
+.inner-pages p {
+    font-size: calc(10px + 1.1vmin);
+    color: #5e5e5e;
+    line-height: 2;
+}
+.contact-page form.wpcf7-form { padding: 20px; border: 1px solid #ccc; }
+.contact-page form.wpcf7-form textarea {
+  height: 100px;
+}
+.contact-page form.wpcf7-form input.wpcf7-form-control.wpcf7-submit {
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  color: white;
+  background-color: #56b948;
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+.contact-page form div.wpcf7-response-output { margin: 0; }
+
+.contact-page .col-md-6:first-child { padding-right: 25px; }
+.container.inner-pages {
+    margin-top: 15px !important;
+    margin-bottom: 30px;
+    padding: 3vmin 5vmin;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.banner-img { width: 100%; object-fit: cover; }
+header .navbar-nav { width: 100%; }
+
+.main-content h3 { float: left;    display: contents; }
+.main-content img { margin-top: 15px; }
+
+
+.archive h1.page-title { font-size: 2rem; }
+
+
+
+.container.inner-pages h1 {
+  color: #56b948;
+  font-size: 1.6rem;
+  border-bottom: 1px solid;
+  width: 20%;
+  margin-bottom: 20px;
+}
+
+.blog .baner-sec {
+    background-position: center;
+}
+.page-template-blog .container {
+	    margin-bottom: 2rem;
+}
+.error404 .banner-with-action {
+    text-align: center;
+}
+.error404 .banner-with-action {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+.error404 form input {
+    height: 46px;
+}
+.error404 form button.search-button.btn {
+    background: #4cb829;
+    color: #fff;
+}
+
+/* .banner-smaill-card-container .bnr-single-div {
+    border-left: 8px solid #202020;
+}
+.banner-smaill-card-container .bnr-single-div:first-child {
+    border-bottom: 4px solid #202020;
+}
+.banner-smaill-card-container .bnr-single-div:nth-child(2) {
+    border-top: 4px solid #202020;
+}
+.full-wdth-banner .bnr-single-div {
+    border-bottom: 8px solid #202020;
+} */
