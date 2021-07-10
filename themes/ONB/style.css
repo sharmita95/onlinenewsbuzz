@@ -14,67 +14,14 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-.accessily-verification {
-    opacity: 0;
-    pointer-events: none;
-}
-a.accessily-verification img {
-    width: 10%;
-}
+
+
+/*******home page **********/
 img.site-logo {
     height: 24px;
     width: auto;
 }
-.inner-pages p {
-    font-size: calc(10px + 1.1vmin);
-    color: #5e5e5e;
-    line-height: 2;
-}
-.contact-page form.wpcf7-form { padding: 20px; border: 1px solid #ccc; }
-.contact-page form.wpcf7-form textarea {
-  height: 100px;
-}
-.contact-page form.wpcf7-form input.wpcf7-form-control.wpcf7-submit {
-  width: 100%;
-  margin: 0;
-  padding: 10px;
-  text-align: center;
-  border: none;
-  color: white;
-  background-color: #56b948;
-  transition: all 0.3s;
-  border-radius: 5px;
-}
-.contact-page form div.wpcf7-response-output { margin: 0; }
-
-.contact-page .col-md-6:first-child { padding-right: 25px; }
-.container.inner-pages {
-    margin-top: 15px !important;
-    margin-bottom: 30px;
-    padding: 3vmin 5vmin;
-    background-color: white;
-    border-radius: 3px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.banner-img { width: 100%; object-fit: cover; }
 header .navbar-nav { width: 100%; }
-
-.main-content h3 { float: left;    display: contents; }
-.main-content img { margin-top: 15px; }
-
-
-.archive h1.page-title { font-size: 2rem; }
-
-
-
-.container.inner-pages h1 {
-  color: #56b948;
-  font-size: 1.6rem;
-  border-bottom: 1px solid;
-  width: 20%;
-  margin-bottom: 20px;
-}
 
 .blog .baner-sec {
     background-position: center;
@@ -82,6 +29,25 @@ header .navbar-nav { width: 100%; }
 .page-template-blog .container {
 	    margin-bottom: 2rem;
 }
+
+/******** home footer *********/
+.accessily-verification {
+    opacity: 0;
+    pointer-events: none;
+}
+a.accessily-verification img {
+    width: 10%;
+}
+
+/*.banner-img { width: 100%; object-fit: cover; }*/
+
+
+
+.main-content img { margin-top: 15px; }
+
+.archive h1.page-title { font-size: 2rem; }
+
+/********* error404 ***********/
 .error404 .banner-with-action {
     text-align: center;
 }
@@ -109,3 +75,88 @@ header .navbar-nav { width: 100%; }
 .full-wdth-banner .bnr-single-div {
     border-bottom: 8px solid #202020;
 } */
+
+/******* contact us page ********/
+.container.inner-pages a {
+    color: #000;
+    font-weight: 600;
+	transition: 0.3s;
+}
+.container.inner-pages a:hover {
+    color: #56b948;
+}
+.contact-page form.wpcf7-form {
+    margin-bottom: 25px;
+}
+
+
+.container.inner-pages h1 {
+  color: #56b948;
+  font-size: 1.6rem;
+  border-bottom: 1px solid;
+  width: calc(100px + 20vmin) !important;
+  margin-bottom: 20px;
+}
+
+.inner-pages p {
+    font-size: calc(10px + 1.1vmin);
+    color: #5e5e5e;
+    line-height: 2;
+}
+
+.contact-page form.wpcf7-form { padding: 20px; border: 1px solid #ccc; }
+.contact-page form.wpcf7-form textarea {
+  height: 100px;
+}
+.contact-page form.wpcf7-form input.wpcf7-form-control.wpcf7-submit {
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  color: white; 
+  background-color: #56b948;
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+.contact-page form div.wpcf7-response-output { margin: 0; }
+
+.contact-page .col-md-6:first-child { padding-right: 25px; }
+.container.inner-pages {
+    margin-top: 15px !important;
+    margin-bottom: 30px;
+    padding: 3vmin 5vmin;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ********** single page *********** */
+.main-content h3 { float: left;    display: contents; }
+/* ********** side bar *********** */
+
+.sticy .recent-post .img-rec-sec .lis-i .lis-link .lis-para{ 
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+
+/* ********category page ******** */
+
+.letest-newes .combin p {
+    margin-bottom: 0vmin;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+/******* un find *********/
+.category table{
+    width: 100% !important;
+}
+
+
+

@@ -52,7 +52,7 @@
     
       gtag('config', 'G-3Q2SPS8946');
     </script>
-
+    <script data-ad-client="ca-pub-9502972669695969" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </head>
 
   <?php if(is_archive() || is_search()) { ?>

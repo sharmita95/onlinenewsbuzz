@@ -76,9 +76,6 @@ $featured_array = get_posts(array(
     
     <div class="container-fluid banner-section">
       <div class="row">
-		<h1 style="display: none;">
-			Home
-		</h1>
 		
 		<?php $banner_count = 1;
 		
